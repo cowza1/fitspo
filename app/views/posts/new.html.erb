@@ -1,0 +1,5 @@
+<%= simple_form_for @post do |f| %>
+  <%= f.input :photo, as: :file, :label =>"Upload a pic"%>
+  <%= f.input :content, :label => "Make a caption"%>
+  <%= f.button :submit %>
+<% end %>

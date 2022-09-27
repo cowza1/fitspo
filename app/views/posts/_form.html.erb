@@ -1,0 +1,5 @@
+<%=form_for @post do |f|%>
+<%= f.file_field :photos, as: :file, :label => "Upload a pic"%>
+<%= f.text_field  :content, :label => "Write a caption"  %>
+<%= f.submit "Save Post", class: "btn btn-success" %>
+<%end%>
