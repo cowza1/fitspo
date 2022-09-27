@@ -1,7 +1,8 @@
-<h1>Your posts</h1>
+<h1> posts</h1>
 
 <div class="flex-container">
     <% @posts.each do |post|%>
     <%=cl_image_tag post.photo.key, width:400, height: 200, crop: :fill %>
+    <%= post.account.username %>
     <%end%>
 </div>
