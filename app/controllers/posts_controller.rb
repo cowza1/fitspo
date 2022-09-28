@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.account = current_account
+    @post.account = current_account if account_signed_in?
     if @post.save!
       redirect_to dashboard_path
     else

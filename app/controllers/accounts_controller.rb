@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   before_action :authenticate_account!
 
   def index
-    @posts = Post.all
+    @posts = current_account.posts
   end
 
   def show
