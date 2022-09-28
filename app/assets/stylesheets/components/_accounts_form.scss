@@ -1,26 +1,48 @@
+.accounts-body-page {
+  background-color: rgba(63, 87, 206, 1);
+  height: 100vh;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  color: white;
+}
+
 .accounts-form {
-  width: 40%;
+  justify-content: center;
+  width: 300px;
   margin: 0 auto;
   text-align: center;
+  padding-top: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 .accounts-form a {
-  background-color: black;
+  background-color: white;
   padding: 8px 18px;
-  color: white;
+  color: black;
   text-decoration: none;
   border-radius: 5px;
   margin: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
 }
 
 .accounts-form .btn {
-  background-color: black;
+  background-color: white;
   margin: 10px;
-  color: white;
+  color: black;
   border-radius: 5px;
-
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.accounts-body-page {
-  text-align: center;
+.account_remember_me {
+  margin: none;
+}
+
+.accounts-form h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.accounts-form h2 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
