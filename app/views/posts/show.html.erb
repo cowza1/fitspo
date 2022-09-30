@@ -1,0 +1,5 @@
+<%=link_to profile_path(@post.account.username) do%>
+<h1><%= @post.account.username %></h1>
+  <% end %>
+ <%=cl_image_tag @post.photo.key, width:400, height: 200, crop: :fill%>
+<%=link_to "back", dashboard_path%>

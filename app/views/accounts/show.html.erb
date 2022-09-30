@@ -1,9 +1,11 @@
 <h1>Feed</h1>
+<% if @account.posts.present? %>
   <div class="flex-container">
-      <% @posts.each do |post|%>
+      <% @account.posts.each do |post|%>
       <p><%= post.account.username %></p>
-        <%=link_to post_path(post.account) do %>
       <%=cl_image_tag post.photo.key, width:400, height: 200, crop: :fill %>
-        <%end%>
       <%end%>
   </div>
+<% else %>
+  <p>you need to post something or make friends!</p>
+<% end %>
