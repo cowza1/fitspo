@@ -2,4 +2,17 @@
 <h1><%= @post.account.username %></h1>
   <% end %>
  <%=cl_image_tag @post.photo.key, width:400, height: 200, crop: :fill%>
-<%=link_to "back", dashboard_path%>
+
+<div class="form-container" data-controller="insert-in-list" data-insert-in-list-position-value="afterbegin">
+  <%= render 'comments/form', post: @post, comment: @comment %>
+  <div data-insert-in-list-target="items">
+    <% if @post.comments.blank? %>
+    Be the first to leave a comment <%= @post.account.username %>
+  <% else %>
+    <% @post.comments.each do |comment| %>
+    <%= render 'posts/comment', comment: comment%>
+    <% end %>
+  <% end %>
+  </div>
+  <%=link_to "back", dashboard_path%>
+</div>
