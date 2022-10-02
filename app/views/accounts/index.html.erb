@@ -3,6 +3,10 @@
 <ul>
   <%= render @accounts %>
 </ul>
+
+<p>Following: <%=@current_account.following.count%></p>
+<p>Followers: <%=@current_account.followers.count%></p>
+
   <div class="flex-container">
       <% @posts.each do |post|%>
       <p><%= post.account.username %></p>
