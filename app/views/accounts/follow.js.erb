@@ -1,0 +1,7 @@
+
+function renderAccount(accountHTML) {
+  const account = document.querySelector("[data-account='<%= @account.id %>']");
+  account.outerHTML = accountHTML;
+}
+
+renderAccount('<%= j render @account %>');

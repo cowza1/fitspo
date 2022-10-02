@@ -1,4 +1,8 @@
 <h1>Feed</h1>
+<h1>Users:</h1>
+<ul>
+  <%= render @accounts %>
+</ul>
   <div class="flex-container">
       <% @posts.each do |post|%>
       <p><%= post.account.username %></p>
