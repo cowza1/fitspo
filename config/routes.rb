@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :messages
+  resources :conversations
   devise_for :accounts
 
   root to: "pages#home"
