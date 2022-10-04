@@ -1,13 +1,20 @@
 
+<div class="container conversation"
+  data-controller="conversation-subscription"
+  data-conversation-subscription-conversation-id-value="<%= @conversation.id%>"
+>
+  <h1>#<%= @conversation.id %></h1>
+  <div class="messages" data-conversation-subscription-target="messages">
+
     <% @messages.each do |message| %>
-    <% if message.body %>
-      <% account = Account.find(message.account_id) %>
-      <strong><%= account.username %></strong>
-     <p><%= message.body %></p>
+    <%=render "messages/message", message: message %>
     <% end %>
-    <% end %>
-    <%= form_for [@conversation, @message] do |f| %>
-    <%= f.text_area :body %>
-    <%= f.text_field :account_id, value: current_account.id, type: "hidden" %>
-    <%= f.submit "Send Reply" %>
-    <% end %>
+  </div>
+
+      <%= form_for [@conversation, @message] do |f| %>
+      <%= f.text_area :body %>
+      <%= f.text_field :account_id, value: current_account.id, type: "hidden" %>
+      <%= f.submit "Send Reply" %>
+      <% end %>
+
+<div>
