@@ -1,0 +1,21 @@
+<h1>My Inbox</h1>
+<h1>All Conversations:</h1>
+<% @conversations.each do |conversation| %>
+ <% if conversation.sender_id == current_account.id || conversation.recipient_id == current_account.id %>
+  <% if conversation.sender_id == current_account.id %>
+   <% recipient = Account.find(conversation.recipient_id) %>
+  <% else %>
+   <% recipient = Account.find(conversation.sender_id) %>
+  <% end %>
+  <h3><%= link_to recipient.email, conversation_messages_path(conversation)%></h3>
+ <% end %>
+<% end %>
+
+<% if current_account.following.present? %>
+      <h1>Your friends:</h1>
+    <% current_account.following.each do |follow|%>
+    <%= link_to follow.email, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3>
+    <% end %>
+  <% else %>
+  <p>You need some frinds</p>
+<% end %>

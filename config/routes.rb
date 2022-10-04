@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :messages
-  resources :conversations
+
   devise_for :accounts
 
   root to: "pages#home"
@@ -19,6 +18,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :conversations do
+    resources :messages
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
