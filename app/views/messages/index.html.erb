@@ -1,25 +1,25 @@
 <div class="conversation-body-page">
     <div class="container conversation"
       data-controller="conversation-subscription"
-      data-conversation-subscription-conversation-id-value="<%= @conversation.id%>">
+      data-conversation-subscription-conversation-id-value="<%= @conversation.id%>"
+        data-conversation-subscription-current-account-id-value="<%= current_account.id %>">
 
           <h1>#<%= @conversation.id %></h1>
           <div class="messages" data-conversation-subscription-target="messages">
              <% @messages.each do |message| %>
+
+               <div class="message-row d-flex <%= message.sender?(current_account) ? 'justify-content-end' : 'justify-content-start' %>">
+                <div class="<%= message.sender?(current_account) ? 'sender-style' : 'receiver-style' %>">
+
                 <%=render "messages/message", message: message %>
-             <% end %>
+              </div>
+                </div>
+                <% end %>
           </div>
-            <%= form_for [@conversation, @message], html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex" } do |f| %>
+            <%= simple_form_for [@conversation, @message], html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex" } do |f| %>
             <%= f.text_area :body %>
             <%= f.text_field :account_id, value: current_account.id, type: "hidden" %>
             <%= f.submit "Send Reply" %>
             <% end %>
     <div>
 </div>
-
-
-
-  <%# <div class="message-row d-flex <%= message.sender?(current_account) ? 'justify-content-end' : 'justify-content-start' %>
-                <%# <div class="<%= message.sender?(current_account) ? 'sender-style' : 'receiver-style' %>
-                                <%# </div> %>
-              <%# </div> %>

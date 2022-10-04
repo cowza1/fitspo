@@ -17,7 +17,7 @@ class MessagesController < ApplicationController
     @message.save
     ConversationChannel.broadcast_to(
       @conversation,
-      render_to_string(partial: "messages/message", locals: { message: @message })
+      render_to_string(partial: "messages/message", locals: { message: @message }, sender_id: @message.account.id)
     )
     head :ok
   end
