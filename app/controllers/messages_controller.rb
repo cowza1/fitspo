@@ -14,13 +14,12 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
-    if @message.save
-      ConversationChannel.broadcast_to(
-        @conversation,
-        render_to_string(partial: "messages/message", locals: { message: @message })
-      )
-      redirect_to conversation_messages_path(@conversation)
-    end
+    @message.save
+    ConversationChannel.broadcast_to(
+      @conversation,
+      render_to_string(partial: "messages/message", locals: { message: @message })
+    )
+    head :ok
   end
 
   private
