@@ -3,8 +3,7 @@
       data-controller="conversation-subscription"
       data-conversation-subscription-conversation-id-value="<%= @conversation.id%>"
         data-conversation-subscription-current-account-id-value="<%= current_account.id %>">
-
-          <h1>#<%= @conversation.id %></h1>
+        <div class="chat-box">
           <div class="messages" data-conversation-subscription-target="messages">
              <% @messages.each do |message| %>
 
@@ -16,10 +15,13 @@
                 </div>
                 <% end %>
           </div>
+          <div class="conversation-form">
             <%= simple_form_for [@conversation, @message], html: { data: { action: "turbo:submit-end->conversation-subscription#resetForm" }, class: "d-flex" } do |f| %>
             <%= f.text_area :body %>
             <%= f.text_field :account_id, value: current_account.id, type: "hidden" %>
-            <%= f.submit "Send Reply" %>
+            <button type="submit"><i class="fa-brands fa-telegram"></i></button>
             <% end %>
+          </div>
+        </div>
     <div>
 </div>

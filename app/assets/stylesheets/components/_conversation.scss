@@ -1,9 +1,38 @@
 .conversation-body-page {
   display: flex;
   justify-content: center;
+  height: calc(100vh - 80px);
 }
 
-.conversation-form {
-  display: flex;
-  justify-content: center;
+.chat-box {
+  background-color: white;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  height: 80%;
+}
+
+.conversation-form button {
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+#message_body {
+  width: 100%;
+  border: none;
+  min-height: 60px;
+  overflow: auto;
+  overflow-x: hidden;
+  border-radius: 10px;
+}
+
+.fa-telegram {
+  background-color: white;
+  padding: 0 15px;
+}
+
+#new_message {
+  border: 2px solid lightblue;
+  border-radius: 10px;
+  margin: 10px 15px;
 }
