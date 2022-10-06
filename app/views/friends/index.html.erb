@@ -1,0 +1,10 @@
+<h1>Friends</h1>
+<p>Following: <%=current_account.following.count%></p>
+
+<div class="friends-following-list">
+  <% current_account.following.each do |follow|%>
+    <%= link_to profile_path(follow) do %>
+  <li><%= follow.username %></li>
+    <% end %>
+  <% end %>
+</div>

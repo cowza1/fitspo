@@ -1,5 +1,5 @@
 .messages {
-  background-color: white;
+  background-color: #F2F5EA;
   height: 500px;
   overflow: auto;
   text-align: left;
@@ -24,11 +24,13 @@
 }
 
 .sender-style {
-  background-color: #0066EE;
+  background-color: #43AA8B;
+  color: white;
 }
 
 .receiver-style {
-  background-color: lightblue;
+  background-color: #4BA3C3;
+  color: white;
 }
 
 ::-webkit-scrollbar {
@@ -37,7 +39,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: white;
+  background: #F2F5EA;
 }
 
 /* Handle */

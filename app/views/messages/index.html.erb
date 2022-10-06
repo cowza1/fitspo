@@ -3,10 +3,15 @@
       data-controller="conversation-subscription"
       data-conversation-subscription-conversation-id-value="<%= @conversation.id%>"
         data-conversation-subscription-current-account-id-value="<%= current_account.id %>">
+        <div class="recipient-username">
+          <%=link_to conversations_path do%>
+          <i class="fa-solid fa-angles-left"></i>
+          <% end %>
+          <p><strong><%=@conversation.recipient.username%></strong></p>
+        </div>
         <div class="chat-box">
           <div class="messages" data-conversation-subscription-target="messages">
              <% @messages.each do |message| %>
-
                <div class="message-row d-flex <%= message.sender?(current_account) ? 'justify-content-end' : 'justify-content-start' %>">
                 <div class="<%= message.sender?(current_account) ? 'sender-style' : 'receiver-style' %>">
 
