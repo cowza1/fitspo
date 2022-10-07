@@ -32,6 +32,11 @@ class AccountsController < ApplicationController
     end
   end
 
+  def edit
+    @account = Account.find_by(username: params[:username])
+    @account = current_account
+  end
+
   private
 
   def set_account

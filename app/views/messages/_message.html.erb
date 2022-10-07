@@ -2,7 +2,7 @@
 <div id="message">
     <% if message.body %>
       <% account = Account.find(message.account_id) %>
-      <strong><%= account.username %></strong>
-     <p><%= message.body %> - <%= message.created_at.strftime("%a %b %e at %l:%M %p")%></p>
+      <strong><%= account.username %></strong> - <%= message.created_at.strftime("%a %b %e at %l:%M %p")%>
+     <p><%= message.body %></p>
     <% end %>
 </div>

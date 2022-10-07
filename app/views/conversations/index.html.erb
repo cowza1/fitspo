@@ -7,14 +7,22 @@
   <% else %>
    <% recipient = Account.find(conversation.sender_id) %>
   <% end %>
-  <h3><%= link_to recipient.username, conversation_messages_path(conversation)%></h3>
+     <% if recipient.avatar.present? %>
+  <h3><img src="<%=cl_image_path recipient.avatar.key%>" alt="" class=user-avatar-small> - <%= link_to recipient.username, conversation_messages_path(conversation)%></h3>
+    <% else %>
+  <h3><img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%"> - <%= link_to recipient.username, conversation_messages_path(conversation)%></h3>
+      <% end %>
  <% end %>
 <% end %>
 
 <% if current_account.following.present? %>
       <h1>Your friends:</h1>
     <% current_account.following.each do |follow|%>
-    <%= link_to follow.email, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3>
+      <% if follow.avatar.present? %>
+          <p><img src="<%=cl_image_path follow.avatar.key%>" alt="" class=user-avatar-small> <%= link_to follow.email, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3></p>
+      <% else %>
+          <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+      <% end %>
     <% end %>
   <% else %>
   <p>You need some frinds</p>

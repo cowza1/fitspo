@@ -1,4 +1,20 @@
+<% if current_account.avatar.attached? %>
+  <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-medium">
+<% else %>
+  <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+<% end %>
+
+
+
+<% if current_account.avatar.attached? %>
+  <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-small">
+<% else %>
+  <img src="https://source.unsplash.com/kL4coQHVj_A" width="60" height="60" style="border-radius: 50%">
+<% end %>
+
 <h1>Feed</h1>
+<%=link_to "Edit", edit_account_registration_path(current_account) %>
+
 <% if @account.posts.present? %>
   <div class="flex-container">
       <% @account.posts.each do |post|%>

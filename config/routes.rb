@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get "/dashboard" => "accounts#index"
   get "/profile/:username" => "accounts#show", as: :profile
+  get "/profile/:username/edit" => "accounts#edit", as: :profile_edit
+
 
   resources :posts, only: [:new, :create, :show] do
     resources :comments, only: :create
