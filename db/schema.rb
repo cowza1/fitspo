@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_06_165102) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_12_144803) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,6 +75,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_165102) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "exercises", force: :cascade do |t|
+    t.string "name"
+    t.integer "set"
+    t.integer "rep"
+    t.integer "distance"
+    t.bigint "workout_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "weight"
+    t.index ["workout_id"], name: "index_exercises_on_workout_id"
+  end
+
   create_table "follows", force: :cascade do |t|
     t.integer "following_id", null: false
     t.integer "follower_id", null: false
@@ -112,8 +124,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_06_165102) do
     t.index ["account_id"], name: "index_posts_on_account_id"
   end
 
+  create_table "workouts", force: :cascade do |t|
+    t.date "date"
+    t.string "activity"
+    t.integer "length"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["account_id"], name: "index_workouts_on_account_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
+  add_foreign_key "exercises", "workouts"
   add_foreign_key "posts", "accounts"
+  add_foreign_key "workouts", "accounts"
 end

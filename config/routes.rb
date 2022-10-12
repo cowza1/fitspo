@@ -24,6 +24,15 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  resources :workouts do
+    resources :exercises
+  end
+
+  resources :exercises, only: [:destroy]
+
+  resources :foods, only: [:index, :show]
+
+
   resources :friends, only: [:index]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

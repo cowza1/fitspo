@@ -1,0 +1,9 @@
+ <div class="modal-body">
+          <%= simple_form_for [workout, exercise] do |f| %>
+            <%= f.error_notification %>
+             <%= f.input :name, label: "Type of exercise", placeholder: "Running, kick-boxing..."%>
+             <%= f.input :distance,  label: "Distance (km)", placeholder: "5km, 10km etc"  %>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <%= f.button :submit, "Submit", class: "btn btn btn-lg "%>
+        <% end %>
+  </div>

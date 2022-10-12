@@ -1,0 +1,9 @@
+  <div class="modal-body">
+          <%= simple_form_for @workout do |workout| %>
+            <%= workout.error_notification %>
+            <%= workout.input :name, html5: true, as: :string, label: "Name", placeholder: "Upper, Full Body, Lower..." %>
+            <%= workout.input :date, html5: true, as: :date, label: "Date", placeholder: "" %>
+            <%= workout.input :activity, html5: true, as: :activity, label: "Activity", placeholder: "Yoga, Swimming, Weight Training...", as: :string %>
+            <%= workout.input :length, html5: true, as: :length, label: "Length of Workout (mins)", placeholder: "mins...", as: :integer %>
+            <%= workout.button :submit, "Submit", class: "btn btn btn-lg "%>
+        <% end %>

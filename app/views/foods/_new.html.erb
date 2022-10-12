@@ -1,0 +1,6 @@
+<div class="modal-body">
+          <%= simple_form_for @food do |food| %>
+            <%= food.error_notification %>
+            <%= food.input :name, html5: true, as: :string, label: "Name", placeholder: "Breakfast, Lunch...." %>
+            <%= food.button :submit, "Submit", class: "btn btn btn-lg "%>
+        <% end %>
