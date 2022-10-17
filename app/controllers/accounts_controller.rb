@@ -5,6 +5,7 @@ class AccountsController < ApplicationController
   def index
     @accounts = Account.where.not(id: current_account.id)
     @posts = Post.all
+    @posts = Post.order("created_at DESC")
   end
 
   def show

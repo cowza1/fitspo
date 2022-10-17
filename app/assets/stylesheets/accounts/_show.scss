@@ -1,0 +1,43 @@
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-card>img {
+  object-fit: contain;
+  object-position: center;
+  display: flex;
+  margin: 0 auto;
+}
+
+.grid-card>a {
+  text-decoration: none;
+}
+
+.profile-container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: flex;
+}
+
+.profile-friends-link a {
+  color: black;
+  margin-left: 5px;
+
+}
+
+.profile-edit-link a {
+  color: black;
+  margin-left: 10px;
+}
+
+.show-links {
+  display: flex;
+}
+
+.profile-bio {
+  width: 400px;
+  margin: 0 auto;
+}

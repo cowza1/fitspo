@@ -1,27 +1,40 @@
-<% if current_account.avatar.attached? %>
-  <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-medium">
-<% else %>
-  <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
-<% end %>
+<div class="profile-container">
+  <% if current_account.avatar.attached? %>
+    <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-medium">
+  <% else %>
+    <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+  <% end %>
+    <div class="show-links">
+      <div class="profile-friends-link">
+        <%= link_to friends_path do%>
+        <i class="fa-solid fa-user-group"> Friends</i>
+        <% end %>
+      </div>
+      <div class="profile-edit-link">
+        <%=link_to edit_account_registration_path(current_account) do %>
+        <i class="fa-regular fa-pen-to-square"> Edit Profile</i>
+        <% end %>
+      </div>
+    </div>
+</div>
+  <div class="profile-bio">
+      <p>BIO dhuofhuewfhuiefhuehfuhewufh efheuifheufh wefheuifheuih fwuie f fewhufhweiufh efheuifhuew ffhueifhuie hffhueifhuiewh fehhfuiewhfueiw fehfuiewhf ewiufheiufhe f</p>
+  </div>
 
-
-
-<% if current_account.avatar.attached? %>
-  <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-small">
-<% else %>
-  <img src="https://source.unsplash.com/kL4coQHVj_A" width="60" height="60" style="border-radius: 50%">
-<% end %>
-
-<h1>Feed</h1>
-<%=link_to "Edit", edit_account_registration_path(current_account) %>
 
 <% if @account.posts.present? %>
-  <div class="flex-container">
-      <% @account.posts.each do |post|%>
-      <p><%= post.account.username %></p>
-      <%=cl_image_tag post.photo.key, width:400, height: 200, crop: :fill %>
-      <%end%>
+  <div class="grid-container">
+    <div class="grid-card">
+        <% @account.posts.each do |post|%>
+          <%=link_to post_path(post) do %>
+        <%=cl_image_tag post.photo.key, width:400, height: 200, crop: :fill %>
+          <% end %>
+    </div>
+        <%end%>
   </div>
 <% else %>
   <p>you need to post something or make friends!</p>
 <% end %>
+
+
+<%= link_to "Log out", destroy_account_session_path, data: {turbo_method: :delete}%>

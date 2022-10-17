@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_12_144803) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_12_163718) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -97,6 +97,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_144803) do
     t.index ["following_id"], name: "index_follows_on_following_id"
   end
 
+  create_table "foods", force: :cascade do |t|
+    t.string "name"
+    t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_foods_on_account_id"
+  end
+
   create_table "friends", force: :cascade do |t|
     t.bigint "account_id"
     t.datetime "created_at", null: false
@@ -139,6 +147,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_144803) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "exercises", "workouts"
+  add_foreign_key "foods", "accounts"
   add_foreign_key "posts", "accounts"
   add_foreign_key "workouts", "accounts"
 end

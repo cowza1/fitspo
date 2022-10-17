@@ -1,5 +1,9 @@
-<%= simple_form_for @post do |f| %>
-  <%= f.input :photo, as: :file, :label =>"Upload a pic"%>
-  <%= f.input :content, :label => "Make a caption"%>
-  <%= f.button :submit %>
-<% end %>
+<div class="new-post-page" style="background-image: url('https://source.unsplash.com//n8wuzsypQ1M')">
+  <div class="new-post-container">
+    <%= simple_form_for @post do |f| %>
+      <%= f.input :photo, as: :file, :label =>"Upload a pic"%>
+      <%= f.input :content, :label => "Make a caption"%>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
