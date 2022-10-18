@@ -1,10 +1,52 @@
-<h1>Friends</h1>
-<p>Following: <%=current_account.following.count%></p>
+<div class="friends-title">
+  <h1>Friends</h1>
+    <%# <div>
+    <p>Reach out to one of your friends!</p>
+  </div> %>
+</div>
 
-<div class="friends-following-list">
-  <% current_account.following.each do |follow|%>
-    <%= link_to profile_path(follow) do %>
-  <li><%= follow.username %></li>
-    <% end %>
-  <% end %>
+<div class="friends-list-container" style="background-image: url('https://source.unsplash.com/i9IPgzZIwUo')">
+
+  <div class="friends-following-list">
+      <p>Following: <%=current_account.following.count%></p>
+        <% current_account.following.each do |follow|%>
+         <div class="friends-following-card">
+              <li>
+                <img src="<%=cl_image_path follow.avatar.key %>" alt="" class="user-avatar-mini">
+              </li>
+              <li>
+                <%= link_to profile_path(follow.username) do%>
+                  <%= follow.username %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to conversations_path do%>
+                  <i class="fa-solid fa-envelope"></i>
+                <% end %>
+              </li>
+          </div>
+        <% end %>
+  </div>
+
+
+  <div class="friends-followers-list">
+      <p>Followers: <%=current_account.followers.count%></p>
+        <% current_account.followers.each do |follow|%>
+          <div class="friends-followers-card">
+              <li>
+                <img src="<%=cl_image_path follow.avatar.key %>" alt="" class="user-avatar-mini">
+              </li>
+              <li>
+                <%= link_to profile_path(follow.username) do%>
+                  <%= follow.username %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to conversations_path do%>
+                  <i class="fa-solid fa-envelope"></i>
+                <% end %>
+              </li>
+          </div>
+        <% end %>
+  </div>
 </div>

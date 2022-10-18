@@ -1,8 +1,8 @@
 .new-post-page {
-  height: calc(100vh - 60px);
+  height: 100vh;
   background-position: center;
   background-size: cover;
-  margin: 0;
+  // margin: 0;
   display: flex;
 }
 
@@ -12,7 +12,18 @@
   margin: auto;
   margin-top: 30px;
   background-color: #4BA3C3;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: white;
-  border: 1px solid black;
+  // opacity: 0.9;
+  border-radius: 15px;
+}
+
+.new-post-container p {
+  text-align: center;
+}
+
+.post-btn {
+  background-color: orange;
+  color: black;
+  border-radius: 6px;
 }
