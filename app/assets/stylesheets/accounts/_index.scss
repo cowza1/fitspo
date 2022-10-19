@@ -27,7 +27,6 @@
   display: flex;
   width: inherit;
   text-align: left;
-  margin-left: 10px;
   margin-top: 4px;
   height: 40px
 }
@@ -38,11 +37,73 @@
 
 }
 
-.post-header p {
-  margin: auto 0;
-}
 
 .dashboard-header {
   display: flex;
   justify-content: space-between;
+}
+
+.post-header a {
+  display: flex;
+}
+
+#username-profile>p {
+  margin: auto 0;
+  color: black;
+}
+
+
+.my-feed-link {
+  margin: auto;
+  border: 1px solid white;
+  border-radius: 50px;
+  padding: 5px 90px;
+  background-color: #44AA8B;
+  color: white;
+  display: flex;
+}
+
+.my-feed-link>a p {
+  margin: auto 0;
+}
+
+.my-feed-link a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.fa-face-grin-hearts {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  margin: auto 0;
+  color: white;
+
+}
+
+.fa-face-grin-hearts {
+  margin-left: 5px;
+  color: black;
+  color: white;
+}
+
+.my-feed-container {
+  display: flex;
+  margin-top: 9px;
+}
+
+.my-feed-link a>p {
+  margin: 0 5px;
+}
+
+.new-user-container {
+  background-color: lightgray;
+  padding: 1px;
+
+}
+
+.new-user-container img {
+  margin-left: 5px;
 }

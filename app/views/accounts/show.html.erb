@@ -1,33 +1,58 @@
-<div class="profile-container">
-  <% if current_account.avatar.attached? %>
-    <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-medium">
-  <% else %>
-    <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
-  <% end %>
+  <div class="profile-container">
+    <% if current_account.avatar.attached? %>
+      <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-medium">
+    <% else %>
+      <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+    <% end %>
     <div class="show-links">
-      <div class="profile-friends-link">
-        <%= link_to friends_path do%>
-        <i class="fa-solid fa-user-group"> Friends</i>
+
+        <div class="profile-friends-link">
+          <%= link_to friends_path do%>
+          <i class="fa-solid fa-user-group"> Friends</i>
+          <% end %>
+        </div>
+
+
+        <% if @account == current_account %>
+        <div class="profile-edit-link">
+            <%=link_to edit_account_registration_path(current_account) do %>
+            <i class="fa-regular fa-pen-to-square"> Edit Profile</i>
+            <% end %>
+          </div>
+          <% else %>
+
         <% end %>
-      </div>
-      <div class="profile-edit-link">
-        <%=link_to edit_account_registration_path(current_account) do %>
-        <i class="fa-regular fa-pen-to-square"> Edit Profile</i>
-        <% end %>
-      </div>
+        </div>
+
+
+          <%if @account == current_account%>
+          <div class="logout-btn">
+            <%= link_to "Log out", destroy_account_session_path, data: {turbo_method: :delete}%>
+              <% elsif current_account.is_following?(@account.id)%>
+              <div class="message-me-link">
+                <%= link_to conversations_path(current_account) do%>
+                <i class="fa-solid fa-envelope">Message me!</i>
+              </div>
+                <% end %>
+            <% else %>
+            <div class="follow-link">
+              <%= link_to "Follow", follow_account_path(@account), data: {turbo_method: :post }, remote: true, class: "text-decoration-none follow-btn"%>
+            </div>
+            <% end %>
+          </div>
     </div>
 </div>
-  <div class="profile-bio">
+
+<div class="profile-bio">
       <p>BIO dhuofhuewfhuiefhuehfuhewufh efheuifheufh wefheuifheuih fwuie f fewhufhweiufh efheuifhuew ffhueifhuie hffhueifhuiewh fehhfuiewhfueiw fehfuiewhf ewiufheiufhe f</p>
-  </div>
+</div>
 
-
+<div class="flex-container">
 <% if @account.posts.present? %>
-  <div class="grid-container">
-    <div class="grid-card">
         <% @account.posts.each do |post|%>
+        <div class="flex-card">
           <%=link_to post_path(post) do %>
-        <%=cl_image_tag post.photo.key, width:400, height: 200, crop: :fill %>
+        <%=cl_image_tag post.photo.key, width:400, height: 300, crop: :fill %>
           <% end %>
     </div>
         <%end%>
@@ -35,6 +60,3 @@
 <% else %>
   <p>you need to post something or make friends!</p>
 <% end %>
-
-
-<%= link_to "Log out", destroy_account_session_path, data: {turbo_method: :delete}%>

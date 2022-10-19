@@ -1,21 +1,30 @@
 
-
-<div class="new-user-container">
-  <p class="new-user-list">
-    <%= render @accounts.first(3) %>
-  </p>
-</div>
-
 <div>
-  <%=link_to "My Feed", feed_path%>
+  <div class="new-user-container">
+    <p class="new-user-list">
+      <%= render @accounts.all %>
+    </p>
+  </div>
+
+  <div class="my-feed-container">
+    <div class="my-feed-link">
+      <%=link_to feed_path do%>
+        <i class="fa-regular fa-face-grin-hearts" id="emoji-smile"></i>
+      <p>My Feed</p>
+      <% end %>
+    </div>
+  </div>
 </div>
 
   <div class="flex-container">
     <div class="post-card">
           <% @posts.each do |post|%>
             <div class="post-header">
+
             <img src="<%=cl_image_path post.account.avatar.key %>" alt="" class="user-avatar-mini">
+             <%= link_to profile_path(post.account.username), class: "text-decoration-none", id: "username-profile" do%>
             <p><%= post.account.username %></p>
+              <% end %>
             </div>
               <%=link_to post_path(post) do %>
             <%=cl_image_tag post.photo.key, width:400, height: 300, crop: :fill %>

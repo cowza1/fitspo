@@ -1,21 +1,22 @@
-.grid-container {
+.flex-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.grid-card {
+.flex-card {
   width: 400px;
+  margin: 10px 0
 }
 
-.grid-card>img {
+.flex-card>img {
   object-fit: contain;
   object-position: center;
   display: flex;
   margin: 0 auto;
 }
 
-.grid-card>a {
+.flex-card>a {
   text-decoration: none;
 }
 
@@ -35,13 +36,38 @@
 .profile-edit-link a {
   color: black;
   margin-left: 10px;
-}
-
-.show-links {
-  display: flex;
+  margin-top: 10px;
 }
 
 .profile-bio {
   width: 400px;
   margin: 0 auto;
+}
+
+.logout-btn a {
+  // position: absolute;
+  // bottom: 135px;
+  // left: 620px;
+  border: 1px solid black;
+  padding: 5px 20px;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+}
+
+.message-me-link a {
+  text-decoration: none;
+  color: black;
+  margin-left: 5px;
+}
+
+.message-me-link p {
+  color: black;
+  margin-left: 5px;
+}
+
+.follow-link {
+  text-decoration: none;
+  margin-left: 25px;
 }
