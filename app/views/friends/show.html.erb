@@ -1,0 +1,17 @@
+<h1>My feed</h1>
+
+    <div class="flex-container">
+      <div class="post-card">
+        <% current_account.following.each do |follow| %>
+          <%follow.posts.each do |post|%>
+            <div class="post-header">
+                <img src="<%=cl_image_path post.account.avatar.key %>" alt="" class="user-avatar-mini">
+                <p><%= post.account.username %></p>
+              </div>
+                <%=link_to post_path(post) do %>
+                  <%=cl_image_tag post.photo.key, width:400, height: 300, crop: :fill %>
+                <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
