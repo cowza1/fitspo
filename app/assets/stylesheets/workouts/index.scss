@@ -53,13 +53,52 @@
   width: 115px;
   height: 145px;
   border: 1px solid black;
+  // border-radius: 4px;
+  // border-width: 0;
+  // box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  // box-sizing: border-box;
+  // color: #36395A;
+  background-color: white;
+  margin-top: 10px;
+}
+
+.card-body:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.workout-btn {
+
+  font-size: small;
+}
+
+.card-body a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: smaller;
+
+}
+
+.card-title {
+  margin: auto;
+  text-decoration: none;
+  color: black;
+}
+
+.workout-links {
+  text-align: center;
+  cursor: pointer;
 }
 
 .workout-container {
-  // display: flex;
-  // justify-content: space-evenly;
+  justify-content: space-between;
+  max-width: 400px;
+  margin: auto;
+  padding-right: 10px
 }
 
 .workout-page {
-  // max-width: 400px;
+  height: 100vh;
+  background-color: gainsboro;
 }
