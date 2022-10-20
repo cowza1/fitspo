@@ -1,26 +1,31 @@
 
-
-  <button type="button" class="log-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+<div class="log-workout-container">
+  <button type="button" class="log-workout-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Log Workout
   </button>
+</div>
 
 
-<div class="Workout-container">
-  <div class="row">
+  <div class="workout-container row d-flex">
     <% @workouts.each do |workout| %>
-        <div class="card-workout col-3 m-2" style="width: 18rem;">
+        <div class="card-workout col-4 mt-2">
           <%= link_to  workout_path(workout) do %>
           <div class="card-body">
             <div class="d-flex justify-content-between">
-              <h5 class="card-title"><strong><%= workout.name %></strong></h5>
+              <p class="card-title"><strong><%= workout.name %></strong></p>
             </div>
               <p class="card-title-date"><%=workout.date%></p>
               <% end %>
-              <p type="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal<%= workout.id %>">Add Exercise</p>
-              <p type="" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal2<%= workout.id %>">Add Cardio</p>
-          </div>
+              <p type="" class="workout-btn" data-bs-toggle="modal" data-bs-target="#exampleModal<%= workout.id %>">Add Exercise</p>
+              <p type="" class="workout-btn" data-bs-toggle="modal" data-bs-target="#exampleModal2<%= workout.id %>">Add Cardio</p>
               <%= link_to "Delete", workout_path(workout), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this workout log?" } %>
+          </div>
         </div>
+
+
+
+
+
         <%# weight %>
         <div class="modal fade" id="exampleModal<%= workout.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -35,6 +40,8 @@
             </div>
           </div>
         </div>
+
+
         <%# cardio %>
         <div class="modal fade" id="exampleModal2<%= workout.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -49,10 +56,8 @@
             </div>
           </div>
         </div>
-    <% end %>
+     <% end %>
   </div>
-</div>
-
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
