@@ -34,10 +34,10 @@
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
-.log-workout-btn:hover {
-  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-  transform: translateY(-2px);
-}
+// .log-workout-btn:hover {
+//   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+//   transform: translateY(-2px);
+// }
 
 .log-workout-btn:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
@@ -52,7 +52,6 @@
 .card-body {
   width: 115px;
   height: 145px;
-  border: 1px solid black;
   // border-radius: 4px;
   // border-width: 0;
   // box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
@@ -60,11 +59,18 @@
   // color: #36395A;
   background-color: white;
   margin-top: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 15px 0px white;
+  opacity: 0.9;
+  transition: 0.5s;
+  border-radius: 10px;
+  padding-top: 5px
 }
 
 .card-body:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   transform: translateY(-2px);
+  opacity: 1;
 }
 
 .workout-btn {
@@ -92,7 +98,7 @@
 }
 
 .workout-container {
-  justify-content: space-between;
+  justify-content: flex-start;
   max-width: 400px;
   margin: auto;
   padding-right: 10px
@@ -101,4 +107,7 @@
 .workout-page {
   height: 100vh;
   background-color: gainsboro;
+  font-family: "JetBrains Mono", monospace;
+  background-size: cover;
+  background-position: center;
 }
