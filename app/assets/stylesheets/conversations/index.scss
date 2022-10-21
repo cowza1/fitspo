@@ -1,0 +1,67 @@
+.conversation-card {
+
+  margin-top: 10px;
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #4BA3C3;
+  border-radius: 15px;
+  // box-shadow: 0px 0px 15px 3px white;
+  transition: 0.5s;
+  opacity: 0.9;
+}
+
+.conversation-card:active {
+  // box-shadow: 0px 0px 15px 3px #43aa8b;
+  opacity: 1;
+
+  img {
+    box-shadow: 0px 0px 5px 2px;
+
+  }
+}
+
+.conversation-card:active {
+  box-shadow: 0px 0px 15px 3px white;
+  opacity: 1;
+}
+
+.conversation-card a {
+  text-decoration: none;
+  color: white;
+}
+
+.converation-container {
+  display: flex;
+  justify-content: center;
+  background-color: #F2F5EA;
+  margin: 0;
+  max-width: 400px;
+  font-family: "JetBrains Mono", monospace;
+
+}
+
+.conversation-page h2 {
+  text-align: center;
+  background-color: #F2F5EA;
+  font-family: "JetBrains Mono", monospace;
+
+}
+
+.friend-card {
+  text-align: center;
+}
+
+.friend-card a {
+  text-decoration: none;
+  color: black;
+}
+
+.conversation-card p {
+  margin: 0;
+}
+
+.conversation-card img {
+  margin-right: 10px;
+  transition: 0.5s;
+}

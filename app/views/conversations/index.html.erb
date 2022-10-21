@@ -1,29 +1,56 @@
-<h1>My Inbox</h1>
-<h1>All Conversations:</h1>
-<% @conversations.each do |conversation| %>
- <% if conversation.sender_id == current_account.id || conversation.recipient_id == current_account.id %>
-  <% if conversation.sender_id == current_account.id %>
-   <% recipient = Account.find(conversation.recipient_id) %>
-  <% else %>
-   <% recipient = Account.find(conversation.sender_id) %>
-  <% end %>
-     <% if recipient.avatar.present? %>
-  <h3><img src="<%=cl_image_path recipient.avatar.key%>" alt="" class=user-avatar-small> - <%= link_to recipient.username, conversation_messages_path(conversation)%></h3>
-    <% else %>
-  <h3><img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%"> - <%= link_to recipient.username, conversation_messages_path(conversation)%></h3>
-      <% end %>
- <% end %>
-<% end %>
+<div class="conversation-page">
+  <h2>My Inbox</h2>
+  <div class="converation-container row">
+    <% if @conversations %>
 
-<% if current_account.following.present? %>
-      <h1>Your friends:</h1>
-    <% current_account.following.each do |follow|%>
-      <% if follow.avatar.present? %>
-          <p><img src="<%=cl_image_path follow.avatar.key%>" alt="" class=user-avatar-small> <%= link_to follow.email, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3></p>
-      <% else %>
-          <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+        <h2>All Conversations:</h2>
+        <% @conversations.each do |conversation| %>
+        <% if conversation.sender_id == current_account.id || conversation.recipient_id == current_account.id %>
+          <% if conversation.sender_id == current_account.id %>
+          <% recipient = Account.find(conversation.recipient_id) %>
+          <% else %>
+          <% recipient = Account.find(conversation.sender_id) %>
+          <% end %>
+            <% if recipient.avatar.present? %>
+            <div class="conversation-card">
+          <p><img src="<%=cl_image_path recipient.avatar.key%>" alt="" class=user-avatar-small> <%= link_to recipient.username, conversation_messages_path(conversation)%></p>
+            <% else %>
+          <p><img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%"> <%= link_to recipient.username, conversation_messages_path(conversation)%></p>
+              <% end %>
+          </div>
+        <% end %>
+        <% end %>
+
+        <% if current_account.following.present? %>
+              <h2 class="mt-2">Your friends:</h2>
+          <div class="friends-container row d-flex">
+            <% current_account.following.each do |follow|%>
+            <div class="friend-card col-6">
+              <% if follow.avatar.present? %>
+                  <p><img src="<%=cl_image_path follow.avatar.key%>" alt="" class=user-avatar-small> <%= link_to follow.username, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3></p>
+              <% else %>
+                  <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+              <% end %>
+              </div>
+            <% end %>
+          <% else %>
+          <p>You need some frinds</p>
+        <% end %>
+      </div>
+    <% else %>
+
+        <% if current_account.following.present? %>
+            <h2 class="mt-2">Your friends:</h2>
+          <% current_account.following.each do |follow|%>
+            <% if follow.avatar.present? %>
+                <p><img src="<%=cl_image_path follow.avatar.key%>" alt="" class=user-avatar-small> <%= link_to follow.username, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3></p>
+            <% else %>
+                <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+            <% end %>
+          <% end %>
+        <% else %>
+        <p>You need some frinds</p>
       <% end %>
-    <% end %>
-  <% else %>
-  <p>You need some frinds</p>
-<% end %>
+      <% end %>
+  </div>
+</div>

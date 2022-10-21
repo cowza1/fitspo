@@ -1,14 +1,14 @@
 .conversation-body-page {
   display: flex;
   justify-content: center;
-  height: calc(100vh - 80px);
+  height: 100vh;
   background-color: white;
 }
 
 .chat-box {
   background-color: #F2F5EA;
   padding-bottom: 10px;
-  height: 650px
+  height: fit-content;
 }
 
 .conversation-form button {
