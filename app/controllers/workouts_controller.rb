@@ -7,7 +7,13 @@ class WorkoutsController < ApplicationController
 
   def show
     @workout = Workout.find(params[:id])
+    # @account = Account.find(params[:id])
     @exercises = @workout.exercises
+  end
+
+  def accounts
+    @account = Account.find_by(username: params[:username])
+    @workouts = Workout.all
   end
 
   def new

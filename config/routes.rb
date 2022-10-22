@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/profile/:username" => "accounts#show", as: :profile
   get "/profile/:username/edit" => "accounts#edit", as: :profile_edit
   get "friends/feed" => "friends#show", as: :feed
-
+  get "/profile/:username/:id/workouts" => "workouts#accounts", as: :workout_accounts
 
 
   resources :posts, only: [:new, :create, :show] do
@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+
   resources :workouts do
     resources :exercises
   end
@@ -33,7 +34,6 @@ Rails.application.routes.draw do
   resources :exercises, only: [:destroy]
 
   resources :foods, only: [:index, :show]
-
 
   resources :friends, only: [:index]
 

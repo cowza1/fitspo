@@ -101,9 +101,35 @@
 .new-user-container {
   background-color: lightgray;
   padding: 1px;
+  min-width: max-content;
+  display: flex;
+  display: inline-flex;
 
 }
 
 .new-user-container img {
   margin-left: 5px;
+}
+
+.new-friends-list {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-x: scroll;
+  background-color: lightgray;
+
+}
+
+.new-user-container>p {
+  margin: auto;
+  padding: 10px 0;
+  margin-right: 5px;
+}
+
+.new-user-container a {
+  color: white;
+
+}
+
+.new-friends-list::-webkit-scrollbar {
+  display: none;
 }

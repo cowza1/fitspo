@@ -5,9 +5,8 @@
     </button>
   </div>
 
-
-    <div class="workout-container row d-flex">
-      <% @workouts.each do |workout| %>
+<div class="workout-container row d-flex">
+      <% current_account.workouts.each do |workout| %>
           <div class="card-workout col-4">
             <%= link_to  workout_path(workout) do %>
             <div class="card-body">

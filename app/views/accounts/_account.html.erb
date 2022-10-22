@@ -1,11 +1,25 @@
 <p data-account=<%= account.id %>>
-  <% if current_account.is_following?(account.id) %>
-    <%# <%= link_to "Unfollow", unfollow_account_path(account.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true %>
-  <% else %>
-  <img src="<%=cl_image_path account.avatar.key %>" alt="" class="user-avatar-mini">
-  <%=link_to profile_path(account.username), class: "text-decoration-none" do%>
-  <%= account.username %>
-  <% end %>
-  <%= link_to "Follow", follow_account_path(account), data: {turbo_method: :post }, remote: true, class: "text-decoration-none follow-btn"%>
+    <% if current_account.is_following?(account.id) %>
+        <%# <%= link_to "Unfollow", unfollow_account_path(account.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true %>
+        <% elsif current_account.is_following?(account.id) == nil %>
+               <% if account.avatar.attached? %>
+                  <img src=" <%= cl_image_path account.avatar.key%>" alt="avatar" class="user-avatar-mini">
+              <% else %>
+                  <img src="https://source.unsplash.com/kL4coQHVj_A" alt="avatar" class="user-avatar-mini">
+              <% end %>
+          <%=link_to profile_path(account.username), class: "text-decoration-none" do%>
+            <%= account.username %>
+          <% end %>
+        <%= link_to "Follow", follow_account_path(account), data: {turbo_method: :post }, remote: true, class: "text-decoration-none follow-btn"%>
+      <% else %>
+              <% if account.avatar.attached? %>
+                      <img src=" <%= cl_image_path account.avatar.key%>" alt="avatar" class="user-avatar-mini">
+              <% else %>
+                      <img src="https://source.unsplash.com/kL4coQHVj_A" alt="avatar" class="user-avatar-mini">
+              <% end %>
+          <%=link_to profile_path(account.username), class: "text-decoration-none" do%>
+            <%= account.username %>
+          <% end %>
+        <%= link_to "Follow", follow_account_path(account), data: {turbo_method: :post }, remote: true, class: "text-decoration-none follow-btn"%>
   <% end %>
 </p>

@@ -1,16 +1,15 @@
 
-<div>
+<div class="new-friends-list">
   <div class="new-user-container">
-    <p class="new-user-list">
-      <%= render @accounts.all %>
-    </p>
+    <p><%= render @accounts.all %></p>
   </div>
+</div>
 
   <div class="my-feed-container">
     <div class="my-feed-link">
       <%=link_to feed_path do%>
         <i class="fa-regular fa-face-grin-hearts" id="emoji-smile"></i>
-      <p>My Feed</p>
+      <p>Tap for my Feed</p>
       <% end %>
     </div>
   </div>

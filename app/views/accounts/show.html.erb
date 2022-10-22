@@ -1,5 +1,5 @@
   <div class="profile-container">
-    <% if current_account.avatar.attached? %>
+    <% if @account.avatar.attached? %>
       <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-medium">
     <% else %>
       <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
@@ -9,6 +9,12 @@
         <div class="profile-friends-link">
           <%= link_to friends_path do%>
           <i class="fa-solid fa-user-group"> Friends</i>
+          <% end %>
+        </div>
+
+        <div class="profile-workout-link">
+          <%= link_to workout_accounts_path(@account.username, @account.id) do%>
+          <i class="fa-solid fa-user-group"> workouts</i>
           <% end %>
         </div>
 
