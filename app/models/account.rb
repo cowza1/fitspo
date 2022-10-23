@@ -13,6 +13,7 @@ class Account < ApplicationRecord
   has_many :workouts
   has_many :foods
   has_many :comments
+  belongs_to :bio
   has_one_attached :avatar
 
   def follow(account_id)

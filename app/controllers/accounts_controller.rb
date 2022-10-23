@@ -11,6 +11,9 @@ class AccountsController < ApplicationController
   def show
     @account = Account.find_by(username: params[:username])
     @posts = Post.where(params[:account_id])
+    @bios = Bio.all
+    @user = @account.id
+    @bio = Bio.find_by(params[@user])
   end
 
   def follow
@@ -37,7 +40,6 @@ class AccountsController < ApplicationController
     @account = Account.find_by(username: params[:username])
     @account = current_account
   end
-
 
   private
 

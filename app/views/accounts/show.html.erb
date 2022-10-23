@@ -50,8 +50,25 @@
 </div>
 
 <div class="profile-bio">
-      <p>BIO dhuofhuewfhuiefhuehfuhewufh efheuifheufh wefheuifheuih fwuie f fewhufhweiufh efheuifhuew ffhueifhuie hffhueifhuiewh fehhfuiewhfueiw fehfuiewhf ewiufheiufhe f</p>
+    <%@bios.each do |bio|%>
+
+        <% if bio.account_id == @account.id && bio.account.present?%>
+
+          <p><%=bio.content%></p>
+          <p>My goal: <%=bio.goal%></p>
+          <p>My hobbies are: <%=bio.hobbies%></p>
+
+            <% if @account == current_account %>
+              <p><%=link_to "Edit Bio", edit_bio_path(@account)%></p>
+            <% end %>
+          <% end %>
+    <% end %>
+
 </div>
+<% if @bio.account_id == @account.id %>
+  <%=@bio.content%>
+
+<% end %>
 
 <div class="flex-container">
 <% if @account.posts.present? %>
