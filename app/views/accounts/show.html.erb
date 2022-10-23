@@ -50,25 +50,25 @@
 </div>
 
 <div class="profile-bio">
-    <%@bios.each do |bio|%>
 
-        <% if bio.account_id == @account.id && bio.account.present?%>
-
-          <p><%=bio.content%></p>
-          <p>My goal: <%=bio.goal%></p>
-          <p>My hobbies are: <%=bio.hobbies%></p>
-
-            <% if @account == current_account %>
-              <p><%=link_to "Edit Bio", edit_bio_path(@account)%></p>
-            <% end %>
-          <% end %>
+<% if @bio.present? %>
+  <p><%=@bio.content%></p>
+  <p>My goal: <%=@bio.goal%></p>
+  <p>My hobbies are: <%=@bio.hobbies%></p>
+    <% if @bio.account == current_account %>
+           <p><%=link_to "Edit Bio", edit_bio_path(@account)%></p>
     <% end %>
+<% elsif @account == current_account %>
+        <%=link_to "Create Bio", new_bio_path(current_account)%>
+ <% else %>
+    <p>Say hi!</p>
+<% end %>
 
 </div>
-<% if @bio.account_id == @account.id %>
-  <%=@bio.content%>
 
-<% end %>
+
+
+
 
 <div class="flex-container">
 <% if @account.posts.present? %>
@@ -83,3 +83,18 @@
 <% else %>
   <p>you need to post something or make friends!</p>
 <% end %>
+
+
+<%# <div class="profile-bio"> %>
+    <%# <%@bios.each do |bio|%>
+
+        <%# <% if bio.account_id == @account.id && bio.account.present?%>
+
+          <%# <p><%=bio.content</p> %>
+          <%# <p>My goal: <%=bio.goal</p> %>
+          <%# <p>My hobbies are: <%=bio.hobbies</p> %>
+
+            <%# <% if @account == current_account %>
+
+
+</div>

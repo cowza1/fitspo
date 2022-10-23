@@ -12,8 +12,7 @@ class AccountsController < ApplicationController
     @account = Account.find_by(username: params[:username])
     @posts = Post.where(params[:account_id])
     @bios = Bio.all
-    @user = @account.id
-    @bio = Bio.find_by(params[@user])
+    @bio = Bio.find_by(account_id: @account.id)
   end
 
   def follow
