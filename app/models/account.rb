@@ -12,6 +12,7 @@ class Account < ApplicationRecord
   has_many :friends
   has_many :workouts
   has_many :foods
+  has_many :comments
   has_one_attached :avatar
 
   def follow(account_id)

@@ -7,8 +7,13 @@
           <%=link_to conversations_path do%>
           <i class="fa-solid fa-angles-left"></i>
           <% end %>
-          <p><strong><%=@conversation.recipient.username%></strong></p>
+          <% if @conversation.recipient.username == current_account.username%>
+            <p><strong><%=@conversation.sender.username%></strong></p>
+          <% else %>
+           <p><strong><%=@conversation.recipient.username%></strong></p>
+          <% end %>
         </div>
+
         <div class="chat-box">
           <div class="messages" data-conversation-subscription-target="messages">
              <% @messages.each do |message| %>

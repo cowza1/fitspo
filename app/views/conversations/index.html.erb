@@ -11,11 +11,11 @@
           <% else %>
           <% recipient = Account.find(conversation.sender_id) %>
           <% end %>
+          <div class="conversation-card">
             <% if recipient.avatar.present? %>
-            <div class="conversation-card">
-          <p><img src="<%=cl_image_path recipient.avatar.key%>" alt="" class=user-avatar-small> <%= link_to recipient.username, conversation_messages_path(conversation)%></p>
+               <p><img src="<%=cl_image_path recipient.avatar.key%>" alt="" class=user-avatar-small> <%= link_to recipient.username, conversation_messages_path(conversation)%></p>
             <% else %>
-          <p><img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%"> <%= link_to recipient.username, conversation_messages_path(conversation)%></p>
+                <p><img src="https://source.unsplash.com/kL4coQHVj_A" class=user-avatar-small> <%= link_to recipient.username, conversation_messages_path(conversation)%></p>
               <% end %>
           </div>
         <% end %>

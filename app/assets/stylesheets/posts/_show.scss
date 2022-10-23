@@ -1,0 +1,47 @@
+.post-show-header {
+  padding: 10px 0;
+}
+
+.post-show-header .user-avatar-mini {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.post-show-header a {
+  text-decoration: none;
+  color: black;
+}
+
+.comment-btn {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.back-link a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.comment-form-container {
+  text-align: center;
+}
+
+.comment-form-container p {
+  text-align: start;
+  background-color: #4BA3C3;
+  margin: 10px 10px;
+  padding: 5px;
+  border-radius: 10px;
+  padding-left: 15px;
+  color: white;
+  font-weight: bold;
+}
+
+.posts-show-page {
+  background-color: white;
+  height: 100vh;
+}

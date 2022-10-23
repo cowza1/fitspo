@@ -9,9 +9,15 @@
         <p>Following: <%=current_account.following.count%></p>
           <% current_account.following.each do |follow|%>
           <div class="friends-following-card">
+
                 <li>
-                  <img src="<%=cl_image_path follow.avatar.key %>" alt="" class="user-avatar-mini">
+               <% if follow.avatar.attached? %>
+                  <img src=" <%= cl_image_path follow.avatar.key%>" alt="avatar" class="user-avatar-mini">
+              <% else %>
+                  <img src="https://source.unsplash.com/kL4coQHVj_A" alt="avatar" class="user-avatar-mini">
+              <% end %>
                 </li>
+
                 <li>
                   <%= link_to profile_path(follow.username) do%>
                     <%= follow.username %>
@@ -31,8 +37,12 @@
         <p>Followers: <%=current_account.followers.count%></p>
           <% current_account.followers.each do |follow|%>
             <div class="friends-followers-card">
-                <li>
-                  <img src="<%=cl_image_path follow.avatar.key %>" alt="" class="user-avatar-mini">
+                   <li>
+               <% if follow.avatar.attached? %>
+                  <img src=" <%= cl_image_path follow.avatar.key%>" alt="avatar" class="user-avatar-mini">
+              <% else %>
+                  <img src="https://source.unsplash.com/kL4coQHVj_A" alt="avatar" class="user-avatar-mini">
+              <% end %>
                 </li>
                 <li>
                   <%= link_to profile_path(follow.username) do%>
