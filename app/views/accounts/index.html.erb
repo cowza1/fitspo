@@ -19,8 +19,11 @@
     <div class="post-card">
           <% @posts.each do |post|%>
             <div class="post-header">
-
+               <% if post.account.avatar.attached? %>
             <img src="<%=cl_image_path post.account.avatar.key %>" alt="" class="user-avatar-mini">
+               <% else %>
+               <img src="https://source.unsplash.com/kL4coQHVj_A" alt="avatar" class="user-avatar-mini">
+                <% end %>
              <%= link_to profile_path(post.account.username), class: "text-decoration-none", id: "username-profile" do%>
             <p><%= post.account.username %></p>
               <% end %>

@@ -78,3 +78,22 @@
   margin-left: 10px;
 
 }
+
+.profile-bio a {
+  text-decoration: underline;
+  color: black;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.profile-bio ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-bio {
+  background-color: lightsteelblue;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: smaller;
+}

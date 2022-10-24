@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get "/profile/:username/:id/workouts" => "workouts#accounts", as: :workout_accounts
 
 
-  resources :posts, only: [:new, :create, :show] do
+  resources :posts, only: [:new, :create, :show, :destroy, :edit, :update] do
     resources :comments, only: :create
   end
 

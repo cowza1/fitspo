@@ -1,0 +1,9 @@
+<div class="new-post-page" style="background-image: url('https://source.unsplash.com//__QqvTI5Edc')">
+  <div class="new-post-container">
+    <p>Edit your post!</p>
+    <%= simple_form_for @post do |f| %>
+      <%= f.input :content, :label => "Edit your caption"%>
+      <%= f.button :submit, :class =>"post-btn" %>
+    <% end %>
+  </div>
+</div>

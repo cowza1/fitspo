@@ -23,6 +23,25 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(content: params[:post][:content])
+    redirect_to dashboard_path
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to profile_path(current_account.username), status: :see_other
+    else
+      render "post/show"
+    end
+  end
+
   private
 
   def post_params

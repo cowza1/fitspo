@@ -53,8 +53,10 @@
 
 <% if @bio.present? %>
   <p><%=@bio.content%></p>
-  <p>My goal: <%=@bio.goal%></p>
-  <p>My hobbies are: <%=@bio.hobbies%></p>
+  <ul>
+  <li>My goal: <%=@bio.goal%></li>
+  <li>My hobbies are: <%=@bio.hobbies%></li>
+  </ul>
     <% if @bio.account == current_account %>
            <p><%=link_to "Edit Bio", edit_bio_path(@account)%></p>
     <% end %>
@@ -81,20 +83,7 @@
         <%end%>
   </div>
 <% else %>
-  <p>you need to post something or make friends!</p>
+  <p style="text-aling: center;">Why don't you post something</p>
 <% end %>
-
-
-<%# <div class="profile-bio"> %>
-    <%# <%@bios.each do |bio|%>
-
-        <%# <% if bio.account_id == @account.id && bio.account.present?%>
-
-          <%# <p><%=bio.content</p> %>
-          <%# <p>My goal: <%=bio.goal</p> %>
-          <%# <p>My hobbies are: <%=bio.hobbies</p> %>
-
-            <%# <% if @account == current_account %>
-
 
 </div>

@@ -1,1 +1,8 @@
-<p><img src="<%=cl_image_path current_account.avatar.key %>" alt="" class="user-avatar-mini" style="margin-right: 10px;"><%= current_account.username %>- <%= comment.created_at.to_date %><br/><%= comment.content %></p>
+<p>
+<% if current_account.avatar.present? %>
+  <img src="<%=cl_image_path current_account.avatar.key %>" alt="" class="user-avatar-mini" style="margin-right: 10px;">
+  <% else %>
+  <img src="https://source.unsplash.com/kL4coQHVj_A" alt="avatar" class="user-avatar-mini">
+<% end %>
+<%= current_account.username %>- <%= comment.created_at.to_date %><br/><%= comment.content %>
+</p>
