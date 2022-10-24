@@ -13,8 +13,14 @@
         </div>
 
         <div class="profile-workout-link">
-          <%= link_to workout_accounts_path(@account.username, @account.id) do%>
+        <% if @account == current_account %>
+           <%= link_to workouts_path(current_account) do%>
           <i class="fa-solid fa-user-group"> workouts</i>
+          <% end %>
+        <% else %>
+            <%= link_to workout_accounts_path(@account.username, @account.id) do%>
+            <i class="fa-solid fa-user-group"> workouts</i>
+            <% end %>
           <% end %>
         </div>
 
