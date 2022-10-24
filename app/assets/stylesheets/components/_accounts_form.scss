@@ -1,10 +1,10 @@
 .accounts-body-page {
   // background-color: rgba(63, 87, 206, 1);
-  background-color: #0066EE;
-  height: 100vh;
+  background-color: white;
+  height: 100%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
-  color: white;
+  color: black;
 }
 
 .accounts-form {
@@ -46,4 +46,8 @@
 
 .accounts-form h2 {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.profile-pic img {
+  justify-content: center;
 }

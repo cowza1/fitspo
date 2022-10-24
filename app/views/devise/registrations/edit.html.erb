@@ -12,15 +12,13 @@
             <% if current_account.avatar.attached?%>
             <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-medium">
             <% else %>
-              <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+              <img src="https://source.unsplash.com/kL4coQHVj_A" class="user-avatar-medium">
             <% end %>
             <%= f.file_field :avatar%>
 
           </div>
         </div>
             <%= f.input :email, required: true, autofocus: true %>
-
-
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>

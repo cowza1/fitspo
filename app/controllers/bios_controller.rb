@@ -25,15 +25,6 @@ class BiosController < ApplicationController
     redirect_to dashboard_path
   end
 
-  def destroy
-    @bio = Bio.find(params[:id])
-    if @bio.destroy
-      redirect_to profile_path(current_account), status: :see_other
-    else
-      render dashboard_path
-    end
-  end
-
   private
 
   def bio_params

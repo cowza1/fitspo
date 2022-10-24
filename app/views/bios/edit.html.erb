@@ -1,0 +1,14 @@
+<div class="bio-page">
+  <div class="bio-header">
+    <h4>Edit your profile bio</h4>
+  </div>
+  <div class="bio-form">
+      <%=simple_form_for @bio do |f|%>
+        <%= f.input  :content, label: "Tell us about you"  %>
+        <%= f.input  :goal, label: "What are your fitness goals?"  %>
+        <%= f.input :body_type, label: "What is your body type?"  %>
+        <%= f.input  :hobbies, label: "What are your hobbies?"  %>
+        <%= f.submit "Submit", class: "btn btn-success" %>
+      <%end%>
+  </div>
+</div>
