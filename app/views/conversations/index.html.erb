@@ -39,13 +39,14 @@
       </div>
     <% else %>
 
-        <% if current_account.following.present? %>
+
             <h2 class="mt-2">Your friends:</h2>
+       <% if current_account.following.present? %>
           <% current_account.following.each do |follow|%>
             <% if follow.avatar.present? %>
                 <p><img src="<%=cl_image_path follow.avatar.key%>" alt="" class=user-avatar-small> <%= link_to follow.username, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3></p>
             <% else %>
-                <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+                <img src="https://source.unsplash.com/kL4coQHVj_A" class=user-avatar-small>
             <% end %>
           <% end %>
         <% else %>
