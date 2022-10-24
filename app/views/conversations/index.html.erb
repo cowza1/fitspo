@@ -43,15 +43,15 @@
             <h2 class="mt-2">Your friends:</h2>
        <% if current_account.following.present? %>
           <% current_account.following.each do |follow|%>
-            <% if follow.avatar.present? %>
-                <p><img src="<%=cl_image_path follow.avatar.key%>" alt="" class=user-avatar-small> <%= link_to follow.username, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3></p>
-            <% else %>
-                <img src="https://source.unsplash.com/kL4coQHVj_A" class=user-avatar-small>
+              <% if follow.avatar.present? %>
+                  <p><img src="<%=cl_image_path follow.avatar.key%>" alt="" class=user-avatar-small> <%= link_to follow.username, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3></p>
+              <% else %>
+                  <img src="https://source.unsplash.com/kL4coQHVj_A" class=user-avatar-small>
+              <% end %>
             <% end %>
-          <% end %>
-        <% else %>
-        <p style="text-align: center;">You need some friends</p>
+      <% else %>
+          <p style="text-align: center;">You need some friends</p>
       <% end %>
-      <% end %>
+    <% end %>
   </div>
 </div>
