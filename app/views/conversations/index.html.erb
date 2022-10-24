@@ -29,7 +29,7 @@
               <% if follow.avatar.present? %>
                   <p><img src="<%=cl_image_path follow.avatar.key%>" alt="" class=user-avatar-small> <%= link_to follow.username, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3></p>
               <% else %>
-                  <img src="https://source.unsplash.com/kL4coQHVj_A" width="110" height="110" style="border-radius: 50%">
+                  <p><img src="https://source.unsplash.com/kL4coQHVj_A" lt="" class=user-avatar-small><%= link_to follow.username, conversations_path(sender_id: current_account.id, recipient_id: follow.id), data: {turbo_method: :post }, class: "text-decoration-none", remote: true%></h3></p>
               <% end %>
               </div>
             <% end %>
