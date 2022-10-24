@@ -17,7 +17,7 @@
                   <%=cl_image_tag @post.photo.key, width:400, height: 300, crop: :fill%>
             <div class="post-links">
              <% if @post.account == current_account %>
-                  <%= link_to post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this workout log?" } do%>
+                  <%= link_to post_path(@post, @comment), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this workout log?" } do%>
                   <i class="fa-regular fa-trash-can"> Delete</i>
                   <% end %>
                 <div class="profile-edit-link">

@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     if @post.destroy
       redirect_to profile_path(current_account.username), status: :see_other
     else
-      render "post/show"
+      redirect_to profile_path(current_account.username)
     end
   end
 
