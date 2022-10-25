@@ -28,6 +28,8 @@
 
 .comment-form-container {
   text-align: center;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .comment-form-container p {
@@ -39,19 +41,27 @@
   padding-left: 15px;
   color: white;
   font-weight: bold;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .posts-show-page {
   background-color: white;
   height: 100%;
   padding-bottom: 10px;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .post-links {
   display: flex;
   justify-content: space-evenly;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .post-content {
   margin: 10px;
+  font-family: "JetBrains Mono", monospace;
+
 }

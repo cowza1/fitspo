@@ -1,18 +1,23 @@
 .follow-btn {
-  border: 1px solid black;
   padding: 5px;
   border-radius: 50px;
-  background-color: black;
+  background-color: #44AA8B;
   color: white;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .workout-btn {
   background-color: white;
   height: 10px;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .workout-btn>p {
   font-size: 10px;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .btn-success {
@@ -21,4 +26,6 @@
   border-radius: 5px;
   background-color: black;
   color: white;
+  font-family: "JetBrains Mono", monospace;
+
 }

@@ -10,7 +10,7 @@
         <div class ="row">
           <div class="col-sm-4">
             <% if current_account.avatar.attached?%>
-            <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-medium">
+            <img src=" <%= cl_image_path @account.avatar.key%>" alt="avatar" class="user-avatar-medium mb-2">
             <% else %>
               <img src="https://source.unsplash.com/kL4coQHVj_A" class="user-avatar-medium">
             <% end %>

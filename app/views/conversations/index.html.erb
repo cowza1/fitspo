@@ -2,8 +2,6 @@
   <h2>My Inbox</h2>
   <div class="converation-container row">
     <% if @conversations %>
-
-        <h2>All Conversations:</h2>
         <% @conversations.each do |conversation| %>
         <% if conversation.sender_id == current_account.id || conversation.recipient_id == current_account.id %>
           <% if conversation.sender_id == current_account.id %>
@@ -34,7 +32,7 @@
               </div>
             <% end %>
           <% else %>
-          <p>You need some frinds</p>
+          <p style="text-align:center; font-weight: bolder;">Follow some friends so that you can message them</p>
         <% end %>
       </div>
     <% else %>

@@ -1,7 +1,7 @@
 <div class="my-feed-header">
-  <h3>My feed</h3>
+  <p>My feed</p>
 </div>
-
+<% if current_account.following.present? %>
     <div class="flex-container">
       <div class="post-card">
         <% current_account.following.each do |follow| %>
@@ -17,3 +17,6 @@
         <% end %>
       </div>
     </div>
+<% else %>
+  <p style="text-align:center;">Make some friends and all you followers feed will be displayed here</p>
+<% end %>

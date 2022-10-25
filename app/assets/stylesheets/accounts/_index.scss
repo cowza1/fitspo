@@ -45,6 +45,8 @@
 
 .post-header a {
   display: flex;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 #username-profile>p {
@@ -61,10 +63,14 @@
   background-color: #44AA8B;
   color: white;
   display: flex;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .my-feed-link>a p {
   margin: auto 0;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .my-feed-link a {
@@ -72,6 +78,8 @@
   display: flex;
   justify-content: center;
   color: white;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .fa-face-grin-hearts {
@@ -92,6 +100,8 @@
 .my-feed-container {
   display: flex;
   margin-top: 9px;
+  font-family: "JetBrains Mono", monospace;
+
 }
 
 .my-feed-link a>p {
@@ -116,7 +126,7 @@
   overflow-x: hidden;
   overflow-x: scroll;
   background-color: lightgray;
-
+  min-height: 50px
 }
 
 .new-user-container>p {

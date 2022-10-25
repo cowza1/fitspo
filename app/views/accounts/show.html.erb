@@ -6,13 +6,13 @@
     <% end %>
     <div class="show-links">
 
-        <div class="profile-friends-link">
+        <div class="profile-friends-link mb-2">
           <%= link_to friends_path do%>
           <i class="fa-solid fa-user-group"> Friends</i>
           <% end %>
         </div>
 
-        <div class="profile-workout-link">
+        <div class="profile-workout-link mb-2">
         <% if @account == current_account %>
            <%= link_to workouts_path(current_account) do%>
           <i class="fa-solid fa-user-group"> workouts</i>
