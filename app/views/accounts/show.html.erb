@@ -43,7 +43,7 @@
               <% elsif current_account.is_following?(@account.id)%>
               <div class="message-me-link">
                 <%= link_to conversations_path(current_account) do%>
-                <i class="fa-solid fa-envelope">Message me!</i>
+                <i class="fa-solid fa-envelope"> Message me!</i>
               </div>
                 <% end %>
             <% else %>
@@ -89,7 +89,7 @@
         <%end%>
   </div>
 <% else %>
-  <p style="text-aling: center;">Why don't you post something</p>
+  <p style="text-aling: center;">Nothing posted yet</p>
 <% end %>
 
 </div>

@@ -8,7 +8,9 @@
           <%follow.posts.each do |post|%>
             <div class="post-header">
                 <img src="<%=cl_image_path post.account.avatar.key %>" alt="" class="user-avatar-mini">
+                  <%=link_to profile_path(post.account.username) do%>
                 <p><%= post.account.username %></p>
+                  <% end %>
               </div>
                 <%=link_to post_path(post) do %>
                   <%=cl_image_tag post.photo.key, width:400, height: 300, crop: :fill %>
