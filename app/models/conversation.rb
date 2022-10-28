@@ -1,6 +1,6 @@
 class Conversation < ApplicationRecord
-  belongs_to :sender, foreign_key: :sender_id, class_name: 'Account'
-  belongs_to :recipient, foreign_key: :recipient_id, class_name: 'Account'
+  belongs_to :sender, foreign_key: :sender_id, class_name: 'Account', dependent: :destroy
+  belongs_to :recipient, foreign_key: :recipient_id, class_name: 'Account', dependent: :destroy
   has_many :messages, dependent: :destroy
   validates_uniqueness_of :sender_id, scope: :recipient_id
   scope :between, lambda { |sender_id, recipient_id|
