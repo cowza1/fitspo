@@ -17,7 +17,7 @@
                   <%=cl_image_tag @post.photo.key, width:400, height: 300, crop: :fill%>
             <div class="post-links">
              <% if @post.account == current_account %>
-                  <%= link_to post_path(@post, @comment), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this post log?" } do%>
+                  <%= link_to post_path(@post, @comment), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this post?" } do%>
                   <i class="fa-regular fa-trash-can"> Delete</i>
                   <% end %>
                 <div class="profile-edit-link">
@@ -31,12 +31,16 @@
               <p><%=@post.content %></p>
           </div>
 
-        <div class="comment-form-container" data-controller="insert-in-list" data-insert-in-list-position-value="afterbegin">
+      <div class="comment-form-container" data-controller="insert-in-list" data-insert-in-list-position-value="afterbegin">
           <%= render 'comments/form', post: @post, comment: @comment%>
           <div data-insert-in-list-target="items">
+          <% if @post.comments.present? %>
             <% @post.comments.each do |comment| %>
             <%= render 'posts/comment', comment: comment%>
             <% end %>
+          <% else %>
+
+          <% end %>
           </div>
         </div>
       <div>

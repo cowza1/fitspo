@@ -15,6 +15,10 @@ class Account < ApplicationRecord
   has_many :comments
   has_one_attached :avatar
 
+  validates :username, presence: true, length: { minimum: 4, maximum: 10 }, uniqueness: { case_sensitive: false }
+  validate :username_format
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+
   def follow(account_id)
     following_relationships.create(following_id: account_id)
   end
@@ -26,5 +30,14 @@ class Account < ApplicationRecord
   def is_following?(account_id)
     relationship = Follow.find_by(follower_id: id, following_id: account_id)
     return true if relationship
+  end
+
+  def username_format
+    has_one_letter = username =~ /[a-zA-Z]/
+    all_valid_characters = username =~ /^[a-zA-Z0-9_]+$/
+    unless has_one_letter and all_valid_characters
+      errors.add(:username,
+                 "must have at least one letter and contain only letters, digits, or underscores")
+    end
   end
 end

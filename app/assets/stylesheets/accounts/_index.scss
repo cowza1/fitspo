@@ -28,7 +28,8 @@
   width: inherit;
   text-align: left;
   margin-top: 4px;
-  height: 40px
+  height: 40px;
+  border-top: 1px solid #44AA8B;
 }
 
 .post-header img {
@@ -64,7 +65,7 @@
   color: white;
   display: flex;
   font-family: "JetBrains Mono", monospace;
-
+  margin-bottom: 10px;
 }
 
 .my-feed-link>a p {
@@ -125,7 +126,7 @@
   width: 100%;
   overflow-x: hidden;
   overflow-x: scroll;
-  background-color: lightgray;
+  background-color: dimgray;
   min-height: 50px
 }
 

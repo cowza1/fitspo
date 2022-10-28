@@ -1,4 +1,7 @@
 
+
+
+
 <div class="new-friends-list">
   <div class="new-user-container">
     <p><%= render @accounts.all %></p>
@@ -30,6 +33,7 @@
               <%=link_to post_path(post) do %>
             <%=cl_image_tag post.photo.key, width:400, height: 300, crop: :fill %>
               <%end%>
+            <p><%= post.content%></p>
           <%end%>
     </div>
   </div>

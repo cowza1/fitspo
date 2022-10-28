@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :accounts
 
+
   root to: "pages#home"
 
   get "/dashboard" => "accounts#index"
